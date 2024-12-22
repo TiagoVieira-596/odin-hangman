@@ -2,11 +2,11 @@ require_relative 'game'
 require_relative 'user_input'
 require_relative 'get_game_info'
 current_game = Game.new
-Game.from_json(File.read('saves.json'), current_game) if yes_or_no?('Load saved game? ')
+Game.from_json(File.read('saves.json'), current_game) if ask_user('Load saved game? ')
 game_won = false
 until game_won == true || current_game.mistake_count >= 6
   get_game_info(current_game)
-  current_game.to_json if yes_or_no?('Save game? ')
+  current_game.to_json if ask_user('Save game? ')
   player_guess = get_user_guess(current_game)
   current_game.guess(player_guess)
   game_won = true if current_game.found_letters.join('') == current_game.secret_word

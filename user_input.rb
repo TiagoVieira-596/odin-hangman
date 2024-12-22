@@ -9,7 +9,7 @@ def get_user_guess(current_game)
   player_guess
 end
 
-def yes_or_no?(message)
+def ask_user(message)
   user_choice = nil
   while user_choice.nil?
     print message
