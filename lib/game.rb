@@ -19,7 +19,7 @@ class Game
                               incorrect_letters: @incorrect_letters,
                               found_letters: @found_letters
                             })
-    File.write('saves.json', json_object)
+    File.write('saves/saves.json', json_object)
   end
 
   def self.from_json(json_object, current_game_object)
